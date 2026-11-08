@@ -1,0 +1,891 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="claude:viewport-fit-sides" content="cover">
+<title>SOX Elétrica e Automação — SJC</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --primary: #0f4c81;
+    --primary-dark: #0a365f;
+    --accent: #5ba33b;
+    --accent-hover: #4c8a30;
+
+    --bg: #f8fafc;
+    --surface: #ffffff;
+    --surface-card: #ffffff;
+    --text: #0f172a;
+    --text-muted: #475569;
+    --border: #cbd5e1;
+    --border-light: #e2e8f0;
+
+    --shadow-sm: 0 1px 3px rgba(15, 23, 42, 0.08);
+    --shadow-md: 0 4px 6px -1px rgba(15, 23, 42, 0.08), 0 2px 4px -2px rgba(15, 23, 42, 0.08);
+    --shadow-lg: 0 10px 25px -5px rgba(15, 23, 42, 0.1), 0 8px 10px -6px rgba(15, 23, 42, 0.1);
+
+    color-scheme: light;
+  }
+
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      --bg: #090d16;
+      --surface: #111827;
+      --surface-card: #1e293b;
+      --text: #f8fafc;
+      --text-muted: #94a3b8;
+      --border: #334155;
+      --border-light: #1e293b;
+
+      --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.3);
+      --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.4);
+      --shadow-lg: 0 10px 25px -5px rgba(0, 0, 0, 0.5);
+
+      color-scheme: dark;
+    }
+  }
+
+  :root[data-theme="dark"] {
+    --bg: #090d16;
+    --surface: #111827;
+    --surface-card: #1e293b;
+    --text: #f8fafc;
+    --text-muted: #94a3b8;
+    --border: #334155;
+    --border-light: #1e293b;
+
+    --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.3);
+    --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.4);
+    --shadow-lg: 0 10px 25px -5px rgba(0, 0, 0, 0.5);
+
+    color-scheme: dark;
+  }
+
+  * {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+  }
+
+  body {
+    font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    background-color: var(--bg);
+    color: var(--text);
+    line-height: 1.6;
+    padding-left: max(16px, env(safe-area-inset-left, 0px));
+    padding-right: max(16px, env(safe-area-inset-right, 0px));
+    overflow-x: hidden;
+  }
+
+  /* Utility classes */
+  .container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 1rem;
+  }
+
+  /* Header */
+  header {
+    position: sticky;
+    top: 0;
+    background-color: var(--surface);
+    border-bottom: 1px solid var(--border-light);
+    z-index: 100;
+    backdrop-filter: blur(8px);
+    background-color: color-mix(in srgb, var(--surface) 90%, transparent);
+  }
+
+  .nav-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 80px;
+  }
+
+  .logo-area {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    text-decoration: none;
+  }
+
+  .logo-icon {
+    width: 48px;
+    height: 48px;
+    border-radius: 12px;
+    background: linear-gradient(135deg, var(--primary), var(--accent));
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-weight: 800;
+    font-size: 1.25rem;
+    box-shadow: var(--shadow-sm);
+  }
+
+  .logo-text {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .logo-title {
+    font-size: 1.25rem;
+    font-weight: 800;
+    color: var(--text);
+    letter-spacing: -0.025em;
+  }
+
+  .logo-subtitle {
+    font-size: 0.75rem;
+    font-weight: 600;
+    color: var(--accent);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+  }
+
+  .nav-links {
+    display: none;
+    gap: 2rem;
+    list-style: none;
+    align-items: center;
+  }
+
+  @media(min-width: 768px) {
+    .nav-links {
+      display: flex;
+    }
+  }
+
+  .nav-links a {
+    text-decoration: none;
+    color: var(--text-muted);
+    font-weight: 500;
+    font-size: 0.95rem;
+    transition: color 0.2s;
+  }
+
+  .nav-links a:hover {
+    color: var(--primary);
+  }
+
+  .btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    padding: 12px 24px;
+    border-radius: 8px;
+    font-weight: 600;
+    font-size: 0.95rem;
+    text-decoration: none;
+    transition: all 0.2s ease;
+    cursor: pointer;
+    border: none;
+  }
+
+  .btn-primary {
+    background-color: #25d366; /* WhatsApp green or accent */
+    color: white;
+    box-shadow: 0 4px 14px rgba(37, 211, 102, 0.3);
+  }
+
+  .btn-primary:hover {
+    background-color: #22bf5b;
+    transform: translateY(-1px);
+    box-shadow: 0 6px 20px rgba(37, 211, 102, 0.4);
+  }
+
+  .btn-outline {
+    background-color: transparent;
+    color: var(--text);
+    border: 1px solid var(--border);
+  }
+
+  .btn-outline:hover {
+    border-color: var(--primary);
+    color: var(--primary);
+    background-color: color-mix(in srgb, var(--primary) 5%, transparent);
+  }
+
+  /* Hero Section */
+  .hero {
+    padding: 5rem 0 4rem;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .hero-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 3rem;
+    align-items: center;
+  }
+
+  @media(min-width: 992px) {
+    .hero-grid {
+      grid-template-columns: 1.2fr 0.8fr;
+    }
+  }
+
+  .hero-content h1 {
+    font-size: 2.5rem;
+    font-weight: 800;
+    line-height: 1.15;
+    letter-spacing: -0.03em;
+    margin-bottom: 1.5rem;
+  }
+
+  @media(min-width: 768px) {
+    .hero-content h1 {
+      font-size: 3.5rem;
+    }
+  }
+
+  .hero-content h1 span {
+    color: var(--primary);
+  }
+
+  .hero-content p {
+    font-size: 1.125rem;
+    color: var(--text-muted);
+    margin-bottom: 2rem;
+    max-width: 600px;
+  }
+
+  .hero-badges {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    margin-bottom: 2.5rem;
+  }
+
+  .badge-item {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 0.875rem;
+    font-weight: 600;
+    color: var(--text);
+    background-color: var(--surface);
+    padding: 6px 12px;
+    border-radius: 6px;
+    border: 1px solid var(--border-light);
+    box-shadow: var(--shadow-sm);
+  }
+
+  .badge-dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background-color: var(--accent);
+  }
+
+  .hero-actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+  }
+
+  .hero-card {
+    background-color: var(--surface-card);
+    border-radius: 20px;
+    padding: 2.5rem;
+    border: 1px solid var(--border-light);
+    box-shadow: var(--shadow-lg);
+    position: relative;
+  }
+
+  .hero-card h3 {
+    font-size: 1.25rem;
+    font-weight: 700;
+    margin-bottom: 1rem;
+    color: var(--text);
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+
+  .quick-services-list {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    margin-bottom: 2rem;
+  }
+
+  .quick-services-list li {
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+    font-size: 0.95rem;
+    color: var(--text-muted);
+  }
+
+  .quick-services-list svg {
+    width: 20px;
+    height: 20px;
+    color: var(--accent);
+    flex-shrink: 0;
+    margin-top: 2px;
+  }
+
+  /* Services Section */
+  .section {
+    padding: 5rem 0;
+    border-top: 1px solid var(--border-light);
+  }
+
+  .section-header {
+    text-align: center;
+    max-width: 700px;
+    margin: 0 auto 4rem;
+  }
+
+  .section-tag {
+    display: inline-block;
+    font-size: 0.75rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: var(--primary);
+    background-color: color-mix(in srgb, var(--primary) 10%, transparent);
+    padding: 4px 12px;
+    border-radius: 20px;
+    margin-bottom: 1rem;
+  }
+
+  .section-header h2 {
+    font-size: 2rem;
+    font-weight: 800;
+    letter-spacing: -0.02em;
+    margin-bottom: 1rem;
+  }
+
+  @media(min-width: 768px) {
+    .section-header h2 {
+      font-size: 2.5rem;
+    }
+  }
+
+  .section-header p {
+    font-size: 1.05rem;
+    color: var(--text-muted);
+  }
+
+  .services-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+
+  @media(min-width: 768px) {
+    .services-grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+
+  @media(min-width: 1024px) {
+    .services-grid {
+      grid-template-columns: repeat(3, 1fr);
+    }
+  }
+
+  .service-card {
+    background-color: var(--surface-card);
+    border-radius: 16px;
+    padding: 2rem;
+    border: 1px solid var(--border-light);
+    box-shadow: var(--shadow-sm);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .service-card:hover {
+    transform: translateY(-4px);
+    box-shadow: var(--shadow-md);
+    border-color: var(--primary);
+  }
+
+  .service-card.highlight {
+    border: 2px solid var(--accent);
+  }
+
+  .service-card.highlight::before {
+    content: "Mais Procurado";
+    position: absolute;
+    top: 15px;
+    right: -30px;
+    background-color: var(--accent);
+    color: white;
+    font-size: 0.65rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    padding: 4px 30px;
+    transform: rotate(45deg);
+    box-shadow: var(--shadow-sm);
+  }
+
+  .service-icon {
+    width: 50px;
+    height: 50px;
+    border-radius: 12px;
+    background-color: color-mix(in srgb, var(--primary) 10%, transparent);
+    color: var(--primary);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.5rem;
+    font-weight: 700;
+    margin-bottom: 1.5rem;
+  }
+
+  .service-card.highlight .service-icon {
+    background-color: color-mix(in srgb, var(--accent) 10%, transparent);
+    color: var(--accent);
+  }
+
+  .service-card h3 {
+    font-size: 1.25rem;
+    font-weight: 700;
+    margin-bottom: 0.75rem;
+  }
+
+  .service-card p {
+    font-size: 0.95rem;
+    color: var(--text-muted);
+    margin-bottom: 1.5rem;
+    flex-grow: 1;
+  }
+
+  .service-list {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    font-size: 0.875rem;
+    color: var(--text);
+    border-top: 1px solid var(--border-light);
+    padding-top: 1rem;
+  }
+
+  .service-list li {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+
+  .service-list li::before {
+    content: "•";
+    color: var(--accent);
+    font-weight: bold;
+    font-size: 1.2rem;
+  }
+
+  /* About / Differential Section */
+  .features-section {
+    background-color: var(--surface);
+    padding: 5rem 0;
+    border-top: 1px solid var(--border-light);
+    border-bottom: 1px solid var(--border-light);
+  }
+
+  .features-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 2.5rem;
+  }
+
+  @media(min-width: 768px) {
+    .features-grid {
+      grid-template-columns: repeat(3, 1fr);
+    }
+  }
+
+  .feature-box {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+  }
+
+  .feature-icon-wrapper {
+    width: 48px;
+    height: 48px;
+    border-radius: 10px;
+    background-color: var(--primary);
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 700;
+  }
+
+  .feature-box h3 {
+    font-size: 1.15rem;
+    font-weight: 700;
+  }
+
+  .feature-box p {
+    color: var(--text-muted);
+    font-size: 0.95rem;
+  }
+
+  /* Region Banner */
+  .region-banner {
+    background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+    color: white;
+    border-radius: 20px;
+    padding: 3rem 2rem;
+    margin: 4rem 0;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+    box-shadow: var(--shadow-lg);
+  }
+
+  .region-banner h2 {
+    font-size: 2rem;
+    font-weight: 800;
+    margin-bottom: 1rem;
+  }
+
+  .region-banner p {
+    font-size: 1.1rem;
+    opacity: 0.9;
+    max-width: 700px;
+    margin: 0 auto 2rem;
+  }
+
+  /* Footer */
+  footer {
+    background-color: var(--surface);
+    border-top: 1px solid var(--border-light);
+    padding: 3rem 0;
+    font-size: 0.875rem;
+    color: var(--text-muted);
+  }
+
+  .footer-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 2rem;
+    margin-bottom: 2rem;
+  }
+
+  @media(min-width: 768px) {
+    .footer-grid {
+      grid-template-columns: 2fr 1fr 1fr;
+    }
+  }
+
+  .footer-col h4 {
+    color: var(--text);
+    font-weight: 700;
+    margin-bottom: 1rem;
+    font-size: 1rem;
+  }
+
+  .footer-col p {
+    margin-bottom: 1rem;
+  }
+
+  .footer-links {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+  }
+
+  .footer-links a {
+    color: var(--text-muted);
+    text-decoration: none;
+    transition: color 0.2s;
+  }
+
+  .footer-links a:hover {
+    color: var(--primary);
+  }
+
+  .footer-bottom {
+    border-top: 1px solid var(--border-light);
+    padding-top: 2rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    align-items: center;
+    text-align: center;
+  }
+
+  @media(min-width: 768px) {
+    .footer-bottom {
+      flex-direction: row;
+      justify-content: space-between;
+      text-align: left;
+    }
+  }
+</style>
+</head>
+<body>
+
+  <!-- Header -->
+  <header>
+    <div class="container nav-container">
+      <a href="#" class="logo-area">
+        <div class="logo-icon">SOX</div>
+        <div class="logo-text">
+          <span class="logo-title">SOX Elétrica</span>
+          <span class="logo-subtitle">Automação & Tecnologia</span>
+        </div>
+      </a>
+      <ul class="nav-links">
+        <li><a href="#servicos">Servicios</a></li>
+        <li><a href="#diferenciais">Diferenciais</a></li>
+        <li><a href="#atendimento">Região</a></li>
+        <li><a href="#contato">Contato</a></li>
+      </ul>
+      <a href="https://wa.me/5512999999999?text=Olá!%20Gostaria%20de%20solicitar%20um%20orçamento%20de%20serviços." target="_blank" class="btn btn-primary">
+        <svg width="18" height="18" fill="currentColor" viewBox="0 0 24 24"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z"/></svg>
+        WhatsApp
+      </a>
+    </div>
+  </header>
+
+  <!-- Hero Section -->
+  <section class="hero">
+    <div class="container hero-grid">
+      <div class="hero-content">
+        <div class="section-tag">Especialista Técnico Responsável</div>
+        <h1>Instalações Elétricas, Automação e Tecnologia com <span>Padrão Profissional</span></h1>
+        <p>Soluções completas para sua residência, comércio, condomínio ou propriedade rural. Atendimento direto com especialista, agilidade e total segurança.</p>
+
+        <div class="hero-badges">
+          <div class="badge-item">
+            <span class="badge-dot"></span>
+            <span>Atendimento em São José dos Campos e Região</span>
+          </div>
+          <div class="badge-item">
+            <span class="badge-dot"></span>
+            <span>Fechaduras Digitais & Automação Smart</span>
+          </div>
+          <div class="badge-item">
+            <span class="badge-dot"></span>
+            <span>Serviço Elétrico Residencial e Comercial</span>
+          </div>
+        </div>
+
+        <div class="hero-actions">
+          <a href="https://wa.me/5512999999999?text=Olá!%20Vim%20pelo%20site%20e%20gostaria%20de%20um%20orçamento." target="_blank" class="btn btn-primary" style="padding: 16px 28px; font-size: 1rem;">
+            Solicitar Orçamento via WhatsApp
+          </a>
+          <a href="#servicos" class="btn btn-outline" style="padding: 16px 28px; font-size: 1rem;">
+            Conhecer Serviços
+          </a>
+        </div>
+      </div>
+
+      <div class="hero-card">
+        <h3>⚡ Por que escolher a SOX?</h3>
+        <ul class="quick-services-list">
+          <li>
+            <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>
+            <span><strong>Atendimento Direto:</strong> Sem intermediários. Você fala diretamente com o técnico responsável pelo serviço.</span>
+          </li>
+          <li>
+            <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>
+            <span><strong>Capacidade Multidisciplinar:</strong> Domínio completo em elétrica, redes, CFTV e automação residencial.</span>
+          </li>
+          <li>
+            <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>
+            <span><strong>Preço Justo e Transparente:</strong> Orçamentos claros, com excelente custo-benefício e garantia de execução.</span>
+          </li>
+          <li>
+            <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>
+            <span><strong>Segurança Garantida:</strong> Diagnóstico rigoroso de fuga de corrente, aterramento e proteção contra surtos.</span>
+          </li>
+        </ul>
+        <a href="https://wa.me/5512999999999?text=Olá!%20Gostaria%20de%20agendar%20uma%20visita%20técnica." target="_blank" class="btn btn-outline" style="width: 100%; text-align: center;">
+          Agendar Visita Técnica
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Services Section -->
+  <section id="servicos" class="section">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-tag">O que fazemos</span>
+        <h2>Soluções Especializadas para sua Necessidade</h2>
+        <p>Serviços técnicos executados com rigor técnico, organização e acabamento impecável.</p>
+      </div>
+
+      <div class="services-grid">
+
+        <!-- Service 1 -->
+        <div class="service-card highlight">
+          <div class="service-icon">🔒</div>
+          <h3>Fechaduras Digitais</h3>
+          <p>Praticidade, segurança e modernidade para sua porta de entrada. Adequação de portas, biometria e senhas.</p>
+          <ul class="service-list">
+            <li>Instalação de fechaduras biométricas e digitais</li>
+            <li>Configuração de usuários e acessos</li>
+            <li>Suporte, manutenção e diagnóstico</li>
+            <li>Modelos com diferentes tecnologias</li>
+          </ul>
+        </div>
+
+        <!-- Service 2 -->
+        <div class="service-card">
+          <div class="service-icon">⚡</div>
+          <h3>Instalações Elétricas</h3>
+          <p>Manutenção preventiva e corretiva, reparos e adequações em residências, comércios e empresas.</p>
+          <ul class="service-list">
+            <li>Troca de disjuntores, tomadas e interruptores</li>
+            <li>Diagnóstico e correção de fuga de corrente</li>
+            <li>Instalação de chuveiros e ventiladores</li>
+            <li>Adequação de circuitos e aterramento</li>
+          </ul>
+        </div>
+
+        <!-- Service 3 -->
+        <div class="service-card">
+          <div class="service-icon">🏠</div>
+          <h3>Automação Residencial</h3>
+          <p>Transforme sua casa em um ambiente inteligente integrado com comando de voz e aplicativos.</p>
+          <ul class="service-list">
+            <li>Interruptores e tomadas inteligentes</li>
+            <li>Integração com Alexa e Google Home</li>
+            <li>Automação de iluminação e equipamentos</li>
+            <li>Soluções para imóveis de aluguel/Airbnb</li>
+          </ul>
+        </div>
+
+        <!-- Service 4 -->
+        <div class="service-card">
+          <div class="service-icon">📷</div>
+          <h3>Câmeras & Segurança</h3>
+          <p>Monitore seu patrimônio de qualquer lugar com sistemas de CFTV de alta definição e acesso remoto.</p>
+          <ul class="service-list">
+            <li>Instalação de câmeras IP e CFTV</li>
+            <li>Configuração de acesso remoto no celular</li>
+            <li>Sistemas de alarmes e sensores</li>
+            <li>Manutenção de redes de segurança</li>
+          </ul>
+        </div>
+
+        <!-- Service 5 -->
+        <div class="service-card">
+          <div class="service-icon">🌐</div>
+          <h3>Redes & Conectividade</h3>
+          <p>Elimine pontos cegos e garanta internet estável em todos os cômodos ou propriedades rurais.</p>
+          <ul class="service-list">
+            <li>Instalação de Wi-Fi e redes cabeadas</li>
+            <li>Configuração de TP-Link Deco (Mesh)</li>
+            <li>Instalação e configuração Starlink</li>
+            <li>Organização de rack e infraestrutura</li>
+          </ul>
+        </div>
+
+        <!-- Service 6 -->
+        <div class="service-card">
+          <div class="service-icon">💻</div>
+          <h3>Informática & Infra</h3>
+          <p>Suporte técnico especializado em computadores, infraestrutura tecnológica e preparação de pontos.</p>
+          <ul class="service-list">
+            <li>Manutenção e formatação de PCs</li>
+            <li>Infraestrutura para cabeamento e pontos</li>
+            <li>Organização técnica de cabos</li>
+            <li>Soluções tecnológicas integradas</li>
+          </ul>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- Features / Differentials -->
+  <section id="diferenciais" class="features-section">
+    <div class="container">
+      <div class="section-header" style="margin-bottom: 3rem;">
+        <span class="section-tag">Compromisso SOX</span>
+        <h2>Profissionalismo em Cada Detalhe</h2>
+      </div>
+
+      <div class="features-grid">
+        <div class="feature-box">
+          <div class="feature-icon-wrapper">01</div>
+          <h3>Diagnóstico Preciso</h3>
+          <p>Análise técnica detalhada para identificar a raiz do problema, evitando gastos desnecessários e garantindo a solução definitiva.</p>
+        </div>
+        <div class="feature-box">
+          <div class="feature-icon-wrapper">02</div>
+          <h3>Atendimento Personalizado</h3>
+          <p>Cada cliente recebe atenção dedicada, com orientações claras sobre o funcionamento dos equipamentos e melhores práticas.</p>
+        </div>
+        <div class="feature-box">
+          <div class="feature-icon-wrapper">03</div>
+          <h3>Versatilidade Tecnológica</h3>
+          <p>Capacidade de integrar elétrica convencional, automação smart, redes Wi-Fi e segurança em um único projeto coerente.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Region / Target -->
+  <section id="atendimento" class="container" style="padding: 5rem 0;">
+    <div class="region-banner">
+      <h2>Atendimento em São José dos Campos e Região</h2>
+      <p>Foco de atendimento presencial em SJC, com especial atenção à Zona Sul e arredores (Bosque dos Eucaliptos e bairros vizinhos), atendendo residências, comércios, condomínios e propriedades rurais.</p>
+      <a href="https://wa.me/5512999999999?text=Olá!%20Gostaria%20de%20verificar%20a%20disponibilidade%20para%20atendimento%20na%20minha%20região." target="_blank" class="btn" style="background-color: white; color: var(--primary);">
+        Verificar Disponibilidade no WhatsApp
+      </a>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-col">
+          <div class="logo-area" style="margin-bottom: 1rem;">
+            <div class="logo-icon" style="width: 36px; height: 36px; font-size: 1rem;">SOX</div>
+            <div class="logo-text">
+              <span class="logo-title" style="font-size: 1rem;">SOX Elétrica e Automação</span>
+            </div>
+          </div>
+          <p>Serviços técnicos especializados em elétrica, fechaduras digitais, automação residencial, segurança e conectividade.</p>
+          <p><strong>CNPJ:</strong> 60.929.887/0001-29</p>
+        </div>
+        <div class="footer-col">
+          <h4>Serviços</h4>
+          <ul class="footer-links">
+            <li><a href="#servicos">Elétrica Residencial & Comercial</a></li>
+            <li><a href="#servicos">Fechaduras Digitais</a></li>
+            <li><a href="#servicos">Automação Smart</a></li>
+            <li><a href="#servicos">Câmeras & CFTV</a></li>
+            <li><a href="#servicos">Redes Wi-Fi & Starlink</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Canais Oficiais</h4>
+          <ul class="footer-links">
+            <li><a href="https://instagram.com/soxautomacao" target="_blank">Instagram: @soxautomacao</a></li>
+            <li><a href="https://wa.me/5512999999999" target="_blank">WhatsApp Comercial</a></li>
+            <li><a href="mailto:soxautomacao@gmail.com">E-mail: soxautomacao@gmail.com</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>&copy; 2026 SOX Elétrica e Automação. Todos os direitos reservados.</p>
+        <p style="font-size: 0.75rem;">Desenvolvido com excelência técnica para São José dos Campos - SP.</p>
+      </div>
+    </div>
+  </footer>
+
+</body>
+</html>
