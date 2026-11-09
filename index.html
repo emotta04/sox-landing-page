@@ -11,162 +11,109 @@
 <style>
   :root {
     --primary: #0f4c81;
-    --primary-dark: #0a365f;
     --accent: #5ba33b;
-    --accent-hover: #4c8a30;
-
-    --bg: #f8fafc;
+    --bg: #fafbfc;
     --surface: #ffffff;
     --surface-card: #ffffff;
     --text: #0f172a;
-    --text-muted: #475569;
-    --border: #cbd5e1;
-    --border-light: #e2e8f0;
-
-    --shadow-sm: 0 1px 3px rgba(15, 23, 42, 0.08);
-    --shadow-md: 0 4px 6px -1px rgba(15, 23, 42, 0.08);
-    --shadow-lg: 0 10px 25px -5px rgba(15, 23, 42, 0.1);
-
+    --text-muted: #64748b;
+    --border: #e2e8f0;
+    --shadow-subtle: 0 1px 2px rgba(15, 23, 42, 0.04);
     color-scheme: light;
   }
 
   @media (prefers-color-scheme: dark) {
     :root:not([data-theme="light"]) {
-      --bg: #090d16;
+      --bg: #0b0f17;
       --surface: #111827;
-      --surface-card: #1e293b;
+      --surface-card: #161f31;
       --text: #f8fafc;
       --text-muted: #94a3b8;
-      --border: #334155;
-      --border-light: #1e293b;
-
-      --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.3);
-      --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.4);
-      --shadow-lg: 0 10px 25px -5px rgba(0, 0, 0, 0.5);
-
+      --border: #1f2937;
+      --shadow-subtle: 0 1px 2px rgba(0, 0, 0, 0.2);
       color-scheme: dark;
     }
   }
 
   :root[data-theme="dark"] {
-    --bg: #090d16;
+    --bg: #0b0f17;
     --surface: #111827;
-    --surface-card: #1e293b;
+    --surface-card: #161f31;
     --text: #f8fafc;
     --text-muted: #94a3b8;
-    --border: #334155;
-    --border-light: #1e293b;
-
-    --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.3);
-    --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.4);
-    --shadow-lg: 0 10px 25px -5px rgba(0, 0, 0, 0.5);
-
+    --border: #1f2937;
+    --shadow-subtle: 0 1px 2px rgba(0, 0, 0, 0.2);
     color-scheme: dark;
   }
 
-  * {
-    box-sizing: border-box;
-    margin: 0;
-    padding: 0;
-  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
 
   body {
-    font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    font-family: 'Plus Jakarta Sans', -apple-system, sans-serif;
     background-color: var(--bg);
     color: var(--text);
-    line-height: 1.6;
+    line-height: 1.5;
     padding-left: max(16px, env(safe-area-inset-left, 0px));
     padding-right: max(16px, env(safe-area-inset-right, 0px));
     overflow-x: hidden;
   }
 
   .container {
-    max-width: 1100px;
+    max-width: 1000px;
     margin: 0 auto;
     padding: 0 1.25rem;
   }
 
-  /* Header */
+  /* Compact Header */
   header {
     position: sticky;
     top: 0;
-    background-color: color-mix(in srgb, var(--surface) 92%, transparent);
-    border-bottom: 1px solid var(--border-light);
+    background-color: color-mix(in srgb, var(--surface) 90%, transparent);
+    border-bottom: 1px solid var(--border);
     z-index: 100;
-    backdrop-filter: blur(10px);
+    backdrop-filter: blur(8px);
   }
 
   .nav-container {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    height: 76px;
+    height: 68px;
   }
 
   .logo-area {
     display: flex;
     align-items: center;
-    gap: 12px;
+    gap: 10px;
     text-decoration: none;
-  }
-
-  .logo-text {
-    display: flex;
-    flex-direction: column;
   }
 
   .logo-title {
-    font-size: 1.15rem;
+    font-size: 1.05rem;
     font-weight: 800;
     color: var(--text);
     letter-spacing: -0.02em;
-    line-height: 1.2;
   }
 
   .logo-subtitle {
-    font-size: 0.7rem;
+    font-size: 0.65rem;
     font-weight: 600;
     color: var(--accent);
     text-transform: uppercase;
-    letter-spacing: 0.08em;
-  }
-
-  .nav-links {
-    display: none;
-    gap: 2rem;
-    list-style: none;
-    align-items: center;
-  }
-
-  @media(min-width: 768px) {
-    .nav-links {
-      display: flex;
-    }
-  }
-
-  .nav-links a {
-    text-decoration: none;
-    color: var(--text-muted);
-    font-weight: 500;
-    font-size: 0.925rem;
-    transition: color 0.2s;
-  }
-
-  .nav-links a:hover {
-    color: var(--primary);
+    letter-spacing: 0.05em;
   }
 
   .btn {
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    gap: 8px;
-    padding: 10px 20px;
-    border-radius: 8px;
+    gap: 6px;
+    padding: 8px 16px;
+    border-radius: 6px;
     font-weight: 600;
-    font-size: 0.925rem;
+    font-size: 0.875rem;
     text-decoration: none;
-    transition: all 0.2s ease;
+    transition: all 0.2s;
     cursor: pointer;
     border: none;
   }
@@ -174,316 +121,188 @@
   .btn-primary {
     background-color: #25d366;
     color: white;
-    box-shadow: 0 4px 12px rgba(37, 211, 102, 0.25);
   }
-
-  .btn-primary:hover {
-    background-color: #22bf5b;
-    transform: translateY(-1px);
-  }
+  .btn-primary:hover { background-color: #22bf5b; }
 
   .btn-outline {
     background-color: transparent;
     color: var(--text);
     border: 1px solid var(--border);
   }
+  .btn-outline:hover { border-color: var(--primary); color: var(--primary); }
 
-  .btn-outline:hover {
-    border-color: var(--primary);
-    color: var(--primary);
-    background-color: color-mix(in srgb, var(--primary) 5%, transparent);
-  }
-
-  /* Hero Section */
+  /* Minimal Hero */
   .hero {
-    padding: 4rem 0 3rem;
+    padding: 3.5rem 0 2.5rem;
   }
 
-  .hero-grid {
-    display: grid;
-    grid-template-columns: 1fr;
-    gap: 2.5rem;
-    align-items: center;
-  }
-
-  @media(min-width: 992px) {
-    .hero-grid {
-      grid-template-columns: 1.1fr 0.9fr;
-    }
-  }
-
-  .hero-content h1 {
-    font-size: 2.25rem;
+  .hero h1 {
+    font-size: 2rem;
     font-weight: 800;
-    line-height: 1.2;
     letter-spacing: -0.03em;
-    margin-bottom: 1.25rem;
+    line-height: 1.2;
+    margin-bottom: 1rem;
   }
 
   @media(min-width: 768px) {
-    .hero-content h1 {
-      font-size: 3.25rem;
-    }
+    .hero h1 { font-size: 2.75rem; }
   }
 
-  .hero-content h1 span {
-    color: var(--primary);
-  }
+  .hero h1 span { color: var(--primary); }
 
-  .hero-content p {
-    font-size: 1.05rem;
+  .hero p {
+    font-size: 1rem;
     color: var(--text-muted);
-    margin-bottom: 1.75rem;
-    max-width: 540px;
+    max-width: 600px;
+    margin-bottom: 1.5rem;
   }
 
-  .hero-badges {
+  .hero-meta {
     display: flex;
     flex-wrap: wrap;
-    gap: 0.75rem;
+    gap: 12px;
+    font-size: 0.825rem;
+    font-weight: 600;
+    color: var(--text-muted);
     margin-bottom: 2rem;
   }
 
-  .badge-item {
-    display: flex;
+  .hero-meta span {
+    display: inline-flex;
     align-items: center;
     gap: 6px;
-    font-size: 0.825rem;
-    font-weight: 600;
-    color: var(--text);
-    background-color: var(--surface);
-    padding: 6px 10px;
-    border-radius: 6px;
-    border: 1px solid var(--border-light);
+    background: var(--surface);
+    padding: 4px 10px;
+    border: 1px solid var(--border);
+    border-radius: 4px;
   }
-
-  .badge-dot {
+  .hero-meta span::before {
+    content: "";
     width: 6px;
     height: 6px;
     border-radius: 50%;
-    background-color: var(--accent);
+    background: var(--accent);
   }
 
-  .hero-actions {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 1rem;
+  /* Compact Services Section */
+  .section {
+    padding: 3rem 0;
+    border-top: 1px solid var(--border);
   }
 
-  .hero-card {
-    background-color: var(--surface-card);
-    border-radius: 16px;
-    padding: 2rem;
-    border: 1px solid var(--border-light);
-    box-shadow: var(--shadow-md);
+  .section-title {
+    font-size: 1.5rem;
+    font-weight: 800;
+    margin-bottom: 0.5rem;
+    letter-spacing: -0.02em;
   }
 
-  .hero-card h3 {
-    font-size: 1.15rem;
-    font-weight: 700;
-    margin-bottom: 1rem;
-    color: var(--text);
-  }
-
-  .quick-list {
-    list-style: none;
-    display: flex;
-    flex-direction: column;
-    gap: 0.875rem;
-    margin-bottom: 1.5rem;
+  .section-desc {
     font-size: 0.925rem;
     color: var(--text-muted);
-  }
-
-  .quick-list li {
-    display: flex;
-    align-items: center;
-    gap: 8px;
-  }
-
-  .quick-list li::before {
-    content: "✓";
-    color: var(--accent);
-    font-weight: 700;
-  }
-
-  /* Services Section */
-  .section {
-    padding: 4rem 0;
-    border-top: 1px solid var(--border-light);
-  }
-
-  .section-header {
-    text-align: center;
-    max-width: 650px;
-    margin: 0 auto 3rem;
-  }
-
-  .section-tag {
-    display: inline-block;
-    font-size: 0.7rem;
-    font-weight: 700;
-    text-transform: uppercase;
-    letter-spacing: 0.1em;
-    color: var(--primary);
-    background-color: color-mix(in srgb, var(--primary) 10%, transparent);
-    padding: 4px 10px;
-    border-radius: 20px;
-    margin-bottom: 0.75rem;
-  }
-
-  .section-header h2 {
-    font-size: 1.85rem;
-    font-weight: 800;
-    letter-spacing: -0.02em;
-    margin-bottom: 0.75rem;
-  }
-
-  .section-header p {
-    font-size: 1rem;
-    color: var(--text-muted);
+    margin-bottom: 2rem;
   }
 
   .services-grid {
     display: grid;
     grid-template-columns: 1fr;
-    gap: 1.5rem;
+    gap: 1rem;
   }
 
   @media(min-width: 768px) {
-    .services-grid {
-      grid-template-columns: repeat(2, 1fr);
-    }
+    .services-grid { grid-template-columns: repeat(2, 1fr); }
   }
 
   @media(min-width: 1024px) {
-    .services-grid {
-      grid-template-columns: repeat(3, 1fr);
-    }
+    .services-grid { grid-template-columns: repeat(3, 1fr); }
   }
 
   .service-card {
     background-color: var(--surface-card);
-    border-radius: 14px;
-    padding: 1.75rem;
-    border: 1px solid var(--border-light);
-    box-shadow: var(--shadow-sm);
-    transition: all 0.2s ease;
+    border-radius: 10px;
+    padding: 1.25rem;
+    border: 1px solid var(--border);
+    box-shadow: var(--shadow-subtle);
     display: flex;
     flex-direction: column;
-    position: relative;
+    gap: 0.5rem;
+  }
+
+  .service-card.highlight {
+    border-color: var(--accent);
   }
 
   .service-icon {
-    width: 48px;
-    height: 48px;
-    border-radius: 12px;
-    background-color: color-mix(in srgb, var(--primary) 10%, transparent);
+    width: 36px;
+    height: 36px;
+    border-radius: 8px;
+    background: color-mix(in srgb, var(--primary) 8%, transparent);
     color: var(--primary);
     display: flex;
     align-items: center;
     justify-content: center;
+    margin-bottom: 0.25rem;
   }
 
   .service-card.highlight .service-icon {
-    background-color: color-mix(in srgb, var(--accent) 10%, transparent);
+    background: color-mix(in srgb, var(--accent) 8%, transparent);
     color: var(--accent);
   }
 
-  .service-card:hover {
-    transform: translateY(-2px);
-    box-shadow: var(--shadow-md);
-    border-color: var(--primary);
-  }
-
-  .service-card.highlight {
-    border: 2px solid var(--accent);
-  }
-
   .service-card h3 {
-    font-size: 1.15rem;
+    font-size: 1rem;
     font-weight: 700;
-    margin-bottom: 0.5rem;
-    display: flex;
-    align-items: center;
-    gap: 8px;
   }
 
   .service-card p {
-    font-size: 0.9rem;
-    color: var(--text-muted);
-    margin-bottom: 1.25rem;
-  }
-
-  .service-tags {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 6px;
-    margin-top: auto;
-  }
-
-  .service-tag-item {
-    font-size: 0.75rem;
-    background-color: var(--bg);
-    border: 1px solid var(--border-light);
-    padding: 3px 8px;
-    border-radius: 4px;
-    color: var(--text-muted);
-  }
-
-  /* Region Banner */
-  .region-banner {
-    background: linear-gradient(135deg, var(--primary), var(--primary-dark));
-    color: white;
-    border-radius: 16px;
-    padding: 2.5rem 2rem;
-    margin: 3rem 0;
-    text-align: center;
-    box-shadow: var(--shadow-md);
-  }
-
-  .region-banner h2 {
-    font-size: 1.75rem;
-    font-weight: 800;
-    margin-bottom: 0.75rem;
-  }
-
-  .region-banner p {
-    font-size: 1.025rem;
-    opacity: 0.9;
-    max-width: 650px;
-    margin: 0 auto 1.5rem;
-  }
-
-  /* Footer */
-  footer {
-    background-color: var(--surface);
-    border-top: 1px solid var(--border-light);
-    padding: 2.5rem 0;
     font-size: 0.85rem;
     color: var(--text-muted);
   }
 
-  .footer-content {
+  /* Compact Banner */
+  .compact-banner {
+    background: var(--primary);
+    color: white;
+    border-radius: 12px;
+    padding: 2rem 1.5rem;
+    margin: 2rem 0;
     display: flex;
     flex-direction: column;
-    gap: 1.5rem;
-    align-items: center;
-    text-align: center;
+    gap: 1rem;
+    align-items: flex-start;
   }
 
   @media(min-width: 768px) {
-    .footer-content {
+    .compact-banner {
       flex-direction: row;
       justify-content: space-between;
-      text-align: left;
+      align-items: center;
     }
   }
 
-  .footer-info {
+  .compact-banner h3 { font-size: 1.25rem; font-weight: 800; margin-bottom: 0.25rem; }
+  .compact-banner p { font-size: 0.9rem; opacity: 0.9; }
+
+  /* Footer */
+  footer {
+    border-top: 1px solid var(--border);
+    padding: 2rem 0;
+    font-size: 0.825rem;
+    color: var(--text-muted);
+  }
+
+  .footer-inner {
     display: flex;
     flex-direction: column;
-    gap: 6px;
+    gap: 0.5rem;
+  }
+
+  @media(min-width: 768px) {
+    .footer-inner {
+      flex-direction: row;
+      justify-content: space-between;
+      align-items: center;
+    }
   }
 </style>
 </head>
@@ -493,189 +312,127 @@
   <header>
     <div class="container nav-container">
       <a href="#" class="logo-area">
-        <img src="SOX_LOGO_EeA.png" alt="SOX Logo" style="width: 44px; height: 44px; object-fit: contain;">
-        <div class="logo-text">
-          <span class="logo-title">SOX Elétrica e Automação</span>
-          <span class="logo-subtitle">Serviços Técnicos Especializados</span>
+        <img src="SOX_LOGO_EeA.png" alt="SOX Logo" style="width: 36px; height: 36px; object-fit: contain;">
+        <div>
+          <div class="logo-title">SOX Elétrica e Automação</div>
+          <div class="logo-subtitle">São José dos Campos - SP</div>
         </div>
       </a>
-      <ul class="nav-links">
-        <li><a href="#servicos">Serviços</a></li>
-        <li><a href="#seguranca">Segurança Eletrônica</a></li>
-        <li><a href="#atendimento">Região</a></li>
-      </ul>
       <a href="https://wa.me/5512996058915?text=Olá!%20Vim%20pelo%20site%20e%20gostaria%20de%20um%20orçamento." target="_blank" class="btn btn-primary">
         WhatsApp: (12) 99605-8915
       </a>
     </div>
   </header>
 
-  <!-- Hero Section -->
+  <!-- Hero -->
   <section class="hero">
-    <div class="container hero-grid">
-      <div class="hero-content">
-        <div class="section-tag">Atendimento Técnico Especializado</div>
-        <h1>Instalações Elétricas, <span>Segurança</span> e Automação</h1>
-        <p>Soluções profissionais para residências, comércios, condomínios e propriedades rurais em São José dos Campos. Atendimento direto com o responsável técnico.</p>
+    <div class="container">
+      <h1>Segurança Eletrônica, <span>Elétrica e Automação</span></h1>
+      <p>Serviços técnicos especializados para residências, comércios e condomínios. Atendimento direto com o responsável técnico em SJC e região.</p>
 
-        <div class="hero-badges">
-          <div class="badge-item">
-            <span class="badge-dot"></span>
-            <span>Segurança Eletrônica & CFTV</span>
-          </div>
-          <div class="badge-item">
-            <span class="badge-dot"></span>
-            <span>Fechaduras Digitais</span>
-          </div>
-          <div class="badge-item">
-            <span class="badge-dot"></span>
-            <span>Elétrica Residencial & Comercial</span>
-          </div>
-        </div>
-
-        <div class="hero-actions">
-          <a href="https://wa.me/5512996058915?text=Olá!%20Gostaria%20de%20solicitar%20um%20orçamento." target="_blank" class="btn btn-primary" style="padding: 14px 24px;">
-            Falar no WhatsApp
-          </a>
-          <a href="#servicos" class="btn btn-outline" style="padding: 14px 24px;">
-            Ver Serviços
-          </a>
-        </div>
+      <div class="hero-meta">
+        <span>Segurança Eletrônica & CFTV</span>
+        <span>Fechaduras Digitais</span>
+        <span>Instalações Elétricas</span>
       </div>
 
-      <div class="hero-card">
-        <h3>⚡ Por que a SOX?</h3>
-        <ul class="quick-list">
-          <li>Atendimento direto com o especialista técnico</li>
-          <li>Foco em segurança, CFTV e automação</li>
-          <li>Orçamento transparente e justo</li>
-          <li>Garantia e acabamento impecável</li>
-        </ul>
-        <a href="https://wa.me/5512996058915?text=Olá!%20Gostaria%20de%20agendar%20uma%20visita%20técnica." target="_blank" class="btn btn-outline" style="width: 100%; text-align: center;">
-          Agendar Visita Técnica
+      <div style="display: flex; gap: 10px; flex-wrap: wrap;">
+        <a href="https://wa.me/5512996058915?text=Olá!%20Gostaria%20de%20solicitar%20um%20orçamento." target="_blank" class="btn btn-primary" style="padding: 10px 20px;">
+          Solicitar Orçamento
+        </a>
+        <a href="#servicos" class="btn btn-outline" style="padding: 10px 20px;">
+          Ver Serviços
         </a>
       </div>
     </div>
   </section>
 
-  <!-- Services Section -->
+  <!-- Services -->
   <section id="servicos" class="section">
     <div class="container">
-      <div class="section-header">
-        <span class="section-tag">Nossas Soluções</span>
-        <h2>Serviços Especializados</h2>
-        <p>Tecnologia, segurança e elétrica com padrão profissional para seu patrimônio.</p>
-      </div>
+      <h2 class="section-title">Nossas Especialidades</h2>
+      <p class="section-desc">Foco em segurança patrimonial, tecnologia e soluções elétricas eficientes.</p>
 
       <div class="services-grid">
 
-        <!-- Segurança Eletrônica & CFTV (Destaque Principal) -->
-        <div class="service-card highlight" id="seguranca">
-          <div class="service-icon" style="margin-bottom: 1rem;">
-            <svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24"><path d="M23 7l-7 5 7 5V7z"></path><rect x="1" y="5" width="15" height="14" rx="2" ry="2"></rect></svg>
+        <!-- Segurança Eletrônica -->
+        <div class="service-card highlight">
+          <div class="service-icon">
+            <svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24"><path d="M23 7l-7 5 7 5V7z"></path><rect x="1" y="5" width="15" height="14" rx="2" ry="2"></rect></svg>
           </div>
           <h3>Segurança Eletrônica & CFTV</h3>
-          <p>Sistemas completos de monitoramento por câmeras de segurança (CFTV), alarmes e acesso remoto pelo celular para sua total tranquilidade.</p>
-          <div class="service-tags">
-            <span class="service-tag-item">Câmeras IP / CFTV</span>
-            <span class="service-tag-item">Acesso Remoto</span>
-            <span class="service-tag-item">Alarmes & Sensores</span>
-          </div>
+          <p>Câmeras de monitoramento HD, alarmes e acesso remoto integrado no seu celular.</p>
         </div>
 
         <!-- Fechaduras Digitais -->
         <div class="service-card highlight">
-          <div class="service-icon" style="margin-bottom: 1rem;">
-            <svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24"><rect x="5" y="2" width="14" height="20" rx="2" ry="2"></rect><circle cx="12" cy="10" r="3"></circle><path d="M9 17h6"></path></svg>
+          <div class="service-icon">
+            <svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24"><rect x="5" y="2" width="14" height="20" rx="2" ry="2"></rect><circle cx="12" cy="10" r="3"></circle><path d="M9 17h6"></path></svg>
           </div>
           <h3>Fechaduras Digitais</h3>
-          <p>Praticidade e segurança avançada com fechaduras biométricas e por senha. Instalação e configuração profissional.</p>
-          <div class="service-tags">
-            <span class="service-tag-item">Biometria & Senha</span>
-            <span class="service-tag-item">Controle de Acesso</span>
-            <span class="service-tag-item">Adequação de Portas</span>
-          </div>
+          <p>Biometria, senhas e controle de acesso com instalação e adequação profissional.</p>
         </div>
 
         <!-- Instalações Elétricas -->
         <div class="service-card">
-          <div class="service-icon" style="margin-bottom: 1rem;">
-            <svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"></polygon></svg>
+          <div class="service-icon">
+            <svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"></polygon></svg>
           </div>
           <h3>Instalações Elétricas</h3>
-          <p>Manutenção preventiva e corretiva, disjuntores, tomadas, iluminação e diagnóstico de fuga de corrente com segurança.</p>
-          <div class="service-tags">
-            <span class="service-tag-item">Reparos & Manutenção</span>
-            <span class="service-tag-item">Disjuntores</span>
-            <span class="service-tag-item">Fuga de Corrente</span>
-          </div>
+          <p>Manutenção preventiva/corretiva, disjuntores, tomadas e correção de fuga de corrente.</p>
         </div>
 
-        <!-- Automação Residencial -->
+        <!-- Automação -->
         <div class="service-card">
-          <div class="service-icon" style="margin-bottom: 1rem;">
-            <svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"></path></svg>
+          <div class="service-icon">
+            <svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"></path></svg>
           </div>
           <h3>Automação Residencial</h3>
-          <p>Integração de interruptores inteligentes, iluminação e comandos por voz (Alexa / Google Home) de forma simples e útil.</p>
-          <div class="service-tags">
-            <span class="service-tag-item">Alexa / Google</span>
-            <span class="service-tag-item">Smart Devices</span>
-          </div>
+          <p>Interruptores inteligentes e integração com Alexa ou Google Home.</p>
         </div>
 
-        <!-- Redes & Conectividade -->
+        <!-- Redes -->
         <div class="service-card">
-          <div class="service-icon" style="margin-bottom: 1rem;">
-            <svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"></circle><line x1="2" y1="12" x2="22" y2="12"></line><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path></svg>
+          <div class="service-icon">
+            <svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"></circle><line x1="2" y1="12" x2="22" y2="12"></line><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path></svg>
           </div>
-          <h3>Redes & Wi-Fi</h3>
-          <p>Configuração de redes Wi-Fi robustas (Mesh TP-Link Deco), Starlink e infraestrutura cabeada para máxima estabilidade.</p>
-          <div class="service-tags">
-            <span class="service-tag-item">Wi-Fi Mesh</span>
-            <span class="service-tag-item">Starlink</span>
-            <span class="service-tag-item">Cabeamento</span>
-          </div>
+          <h3>Redes & Wi-Fi Mesh</h3>
+          <p>Cobertura Wi-Fi estável (TP-Link Deco) e instalação de antenas Starlink.</p>
         </div>
 
-        <!-- Infraestrutura & Informática -->
+        <!-- Infraestrutura -->
         <div class="service-card">
-          <div class="service-icon" style="margin-bottom: 1rem;">
-            <svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24"><rect x="2" y="3" width="20" height="14" rx="2" ry="2"></rect><line x1="8" y1="21" x2="16" y2="21"></line><line x1="12" y1="17" x2="12" y2="21"></line></svg>
+          <div class="service-icon">
+            <svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24"><rect x="2" y="3" width="20" height="14" rx="2" ry="2"></rect><line x1="8" y1="21" x2="16" y2="21"></line><line x1="12" y1="17" x2="12" y2="21"></line></svg>
           </div>
           <h3>Infraestrutura & Suporte</h3>
-          <p>Organização de cabeamento estruturado, pontos elétricos e suporte técnico em informática para comércios e residências.</p>
-          <div class="service-tags">
-            <span class="service-tag-item">Cabeamento</span>
-            <span class="service-tag-item">Suporte Técnico</span>
-          </div>
+          <p>Cabeamento estruturado, pontos elétricos e suporte técnico especializado.</p>
         </div>
 
       </div>
-    </div>
-  </section>
 
-  <!-- Region / Target -->
-  <section id="atendimento" class="container">
-    <div class="region-banner">
-      <h2>Atendimento em São José dos Campos e Região</h2>
-      <p>Foco de atendimento presencial em SJC, com destaque para a Zona Sul (Bosque dos Eucaliptos e arredores), atendo residências, comércios, condomínios e sítios.</p>
-      <a href="https://wa.me/5512996058915?text=Olá!%20Gostaria%20de%20verificar%20a%20disponibilidade%20para%20atendimento%20em%20SJC." target="_blank" class="btn" style="background-color: white; color: var(--primary);">
-        Chamar no WhatsApp (12) 99605-8915
-      </a>
+      <!-- Compact Banner -->
+      <div class="compact-banner">
+        <div>
+          <h3>Precisa de atendimento em São José dos Campos?</h3>
+          <p>Atendimento rápido e direto com o técnico responsável.</p>
+        </div>
+        <a href="https://wa.me/5512996058915?text=Olá!%2520Gostaria%2520de%2520um%2520orçamento." target="_blank" class="btn" style="background: white; color: var(--primary);">
+          Chamar no WhatsApp
+        </a>
+      </div>
+
     </div>
   </section>
 
   <!-- Footer -->
   <footer>
-    <div class="container footer-content">
-      <div class="footer-info">
-        <span style="font-weight: 700; color: var(--text);">SOX Elétrica e Automação</span>
-        <span>CNPJ: 60.929.887/0001-29 — São José dos Campos - SP</span>
-        <span>Instagram: <a href="https://instagram.com/soxautomacao" target="_blank" style="color: var(--primary); text-decoration: none;">@soxautomacao</a></span>
+    <div class="container footer-inner">
+      <div>
+        <strong>SOX Elétrica e Automação</strong> — CNPJ: 60.929.887/0001-29
       </div>
       <div>
-        <p>&copy; 2026 SOX. Todos os direitos reservados.</p>
+        Instagram: <a href="https://instagram.com/soxautomacao" target="_blank" style="color: var(--primary); text-decoration: none;">@soxautomacao</a>
       </div>
     </div>
   </footer>
