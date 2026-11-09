@@ -374,6 +374,22 @@
     position: relative;
   }
 
+  .service-icon {
+    width: 48px;
+    height: 48px;
+    border-radius: 12px;
+    background-color: color-mix(in srgb, var(--primary) 10%, transparent);
+    color: var(--primary);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .service-card.highlight .service-icon {
+    background-color: color-mix(in srgb, var(--accent) 10%, transparent);
+    color: var(--accent);
+  }
+
   .service-card:hover {
     transform: translateY(-2px);
     box-shadow: var(--shadow-md);
@@ -555,9 +571,11 @@
 
         <!-- Segurança Eletrônica & CFTV (Destaque Principal) -->
         <div class="service-card highlight" id="seguranca">
-          <div class="service-icon" style="font-size: 1.5rem; margin-bottom: 1rem;">📷</div>
+          <div class="service-icon" style="margin-bottom: 1rem;">
+            <svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24"><path d="M23 7l-7 5 7 5V7z"></path><rect x="1" y="5" width="15" height="14" rx="2" ry="2"></rect></svg>
+          </div>
           <h3>Segurança Eletrônica & CFTV</h3>
-          <p>Sistemas completos de monitoramento por câmeras, alarmes e acesso remoto pelo celular para sua total tranquilidade.</p>
+          <p>Sistemas completos de monitoramento por câmeras de segurança (CFTV), alarmes e acesso remoto pelo celular para sua total tranquilidade.</p>
           <div class="service-tags">
             <span class="service-tag-item">Câmeras IP / CFTV</span>
             <span class="service-tag-item">Acesso Remoto</span>
@@ -567,19 +585,23 @@
 
         <!-- Fechaduras Digitais -->
         <div class="service-card highlight">
-          <div class="service-icon" style="font-size: 1.5rem; margin-bottom: 1rem;">🔒</div>
+          <div class="service-icon" style="margin-bottom: 1rem;">
+            <svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24"><rect x="5" y="2" width="14" height="20" rx="2" ry="2"></rect><circle cx="12" cy="10" r="3"></circle><path d="M9 17h6"></path></svg>
+          </div>
           <h3>Fechaduras Digitais</h3>
-          <p>Praticidade e segurança avançada com fechaduras biométricas e por senha. Instalação e configuração especializada.</p>
+          <p>Praticidade e segurança avançada com fechaduras biométricas e por senha. Instalação e configuração profissional.</p>
           <div class="service-tags">
-            <span class="service-tag-item">Biometria</span>
-            <span class="service-tag-item">Senhas</span>
+            <span class="service-tag-item">Biometria & Senha</span>
+            <span class="service-tag-item">Controle de Acesso</span>
             <span class="service-tag-item">Adequação de Portas</span>
           </div>
         </div>
 
         <!-- Instalações Elétricas -->
         <div class="service-card">
-          <div class="service-icon" style="font-size: 1.5rem; margin-bottom: 1rem;">⚡</div>
+          <div class="service-icon" style="margin-bottom: 1rem;">
+            <svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"></polygon></svg>
+          </div>
           <h3>Instalações Elétricas</h3>
           <p>Manutenção preventiva e corretiva, disjuntores, tomadas, iluminação e diagnóstico de fuga de corrente com segurança.</p>
           <div class="service-tags">
@@ -591,7 +613,9 @@
 
         <!-- Automação Residencial -->
         <div class="service-card">
-          <div class="service-icon" style="font-size: 1.5rem; margin-bottom: 1rem;">🏠</div>
+          <div class="service-icon" style="margin-bottom: 1rem;">
+            <svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"></path></svg>
+          </div>
           <h3>Automação Residencial</h3>
           <p>Integração de interruptores inteligentes, iluminação e comandos por voz (Alexa / Google Home) de forma simples e útil.</p>
           <div class="service-tags">
@@ -602,7 +626,9 @@
 
         <!-- Redes & Conectividade -->
         <div class="service-card">
-          <div class="service-icon" style="font-size: 1.5rem; margin-bottom: 1rem;">🌐</div>
+          <div class="service-icon" style="margin-bottom: 1rem;">
+            <svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"></circle><line x1="2" y1="12" x2="22" y2="12"></line><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path></svg>
+          </div>
           <h3>Redes & Wi-Fi</h3>
           <p>Configuração de redes Wi-Fi robustas (Mesh TP-Link Deco), Starlink e infraestrutura cabeada para máxima estabilidade.</p>
           <div class="service-tags">
@@ -614,7 +640,9 @@
 
         <!-- Infraestrutura & Informática -->
         <div class="service-card">
-          <div class="service-icon" style="font-size: 1.5rem; margin-bottom: 1rem;">💻</div>
+          <div class="service-icon" style="margin-bottom: 1rem;">
+            <svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24"><rect x="2" y="3" width="20" height="14" rx="2" ry="2"></rect><line x1="8" y1="21" x2="16" y2="21"></line><line x1="12" y1="17" x2="12" y2="21"></line></svg>
+          </div>
           <h3>Infraestrutura & Suporte</h3>
           <p>Organização de cabeamento estruturado, pontos elétricos e suporte técnico em informática para comércios e residências.</p>
           <div class="service-tags">
