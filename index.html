@@ -12,7 +12,7 @@
   :root {
     --primary: #0f4c81;
     --accent: #5ba33b;
-    --bg: #fafbfc;
+    --bg: #ffffff;
     --surface: #ffffff;
     --surface-card: #ffffff;
     --text: #0f172a;
@@ -20,30 +20,6 @@
     --border: #e2e8f0;
     --shadow-subtle: 0 1px 2px rgba(15, 23, 42, 0.04);
     color-scheme: light;
-  }
-
-  @media (prefers-color-scheme: dark) {
-    :root:not([data-theme="light"]) {
-      --bg: #0b0f17;
-      --surface: #111827;
-      --surface-card: #161f31;
-      --text: #f8fafc;
-      --text-muted: #94a3b8;
-      --border: #1f2937;
-      --shadow-subtle: 0 1px 2px rgba(0, 0, 0, 0.2);
-      color-scheme: dark;
-    }
-  }
-
-  :root[data-theme="dark"] {
-    --bg: #0b0f17;
-    --surface: #111827;
-    --surface-card: #161f31;
-    --text: #f8fafc;
-    --text-muted: #94a3b8;
-    --border: #1f2937;
-    --shadow-subtle: 0 1px 2px rgba(0, 0, 0, 0.2);
-    color-scheme: dark;
   }
 
   * { box-sizing: border-box; margin: 0; padding: 0; }
@@ -68,7 +44,7 @@
   header {
     position: sticky;
     top: 0;
-    background-color: color-mix(in srgb, var(--surface) 90%, transparent);
+    background-color: rgba(255, 255, 255, 0.95);
     border-bottom: 1px solid var(--border);
     z-index: 100;
     backdrop-filter: blur(8px);
@@ -171,7 +147,7 @@
     display: inline-flex;
     align-items: center;
     gap: 6px;
-    background: var(--surface);
+    background: #ffffff;
     padding: 4px 10px;
     border: 1px solid var(--border);
     border-radius: 4px;
@@ -218,7 +194,7 @@
   }
 
   .service-card {
-    background-color: var(--surface-card);
+    background-color: #ffffff;
     border-radius: 10px;
     padding: 1.25rem;
     border: 1px solid var(--border);
@@ -226,10 +202,6 @@
     display: flex;
     flex-direction: column;
     gap: 0.5rem;
-  }
-
-  .service-card.highlight {
-    border-color: var(--accent);
   }
 
   .service-icon {
@@ -242,11 +214,6 @@
     align-items: center;
     justify-content: center;
     margin-bottom: 0.25rem;
-  }
-
-  .service-card.highlight .service-icon {
-    background: color-mix(in srgb, var(--accent) 8%, transparent);
-    color: var(--accent);
   }
 
   .service-card h3 {
@@ -289,6 +256,7 @@
     padding: 2rem 0;
     font-size: 0.825rem;
     color: var(--text-muted);
+    background-color: #ffffff;
   }
 
   .footer-inner {
@@ -356,7 +324,7 @@
       <div class="services-grid">
 
         <!-- Segurança Eletrônica -->
-        <div class="service-card highlight">
+        <div class="service-card">
           <div class="service-icon">
             <svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24"><path d="M23 7l-7 5 7 5V7z"></path><rect x="1" y="5" width="15" height="14" rx="2" ry="2"></rect></svg>
           </div>
@@ -365,7 +333,7 @@
         </div>
 
         <!-- Fechaduras Digitais -->
-        <div class="service-card highlight">
+        <div class="service-card">
           <div class="service-icon">
             <svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24"><rect x="5" y="2" width="14" height="20" rx="2" ry="2"></rect><circle cx="12" cy="10" r="3"></circle><path d="M9 17h6"></path></svg>
           </div>
@@ -429,7 +397,7 @@
   <footer>
     <div class="container footer-inner">
       <div>
-        <strong>SOX Elétrica e Automação</strong> — CNPJ: 60.929.887/0001-29
+        <strong>SOX Elétrica e Automação</strong> — São José dos Campos - SP
       </div>
       <div>
         Instagram: <a href="https://instagram.com/soxautomacao" target="_blank" style="color: var(--primary); text-decoration: none;">@soxautomacao</a>
