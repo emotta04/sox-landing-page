@@ -196,12 +196,33 @@
   .service-card {
     background-color: #ffffff;
     border-radius: 10px;
-    padding: 1.25rem;
+    padding: 0;
     border: 1px solid var(--border);
     box-shadow: var(--shadow-subtle);
     display: flex;
     flex-direction: column;
+    overflow: hidden;
+    transition: transform 0.2s, box-shadow 0.2s;
+  }
+
+  .service-card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 24px rgba(15, 23, 42, 0.08);
+  }
+
+  .service-image {
+    width: 100%;
+    height: 160px;
+    object-fit: cover;
+    background: #f1f5f9;
+  }
+
+  .service-content {
+    padding: 1.25rem;
+    display: flex;
+    flex-direction: column;
     gap: 0.5rem;
+    flex: 1;
   }
 
   .service-icon {
@@ -224,6 +245,7 @@
   .service-card p {
     font-size: 0.85rem;
     color: var(--text-muted);
+    flex: 1;
   }
 
   /* Compact Banner */
@@ -296,9 +318,10 @@
       <p>Serviços técnicos especializados para residências, comércios e condomínios. Atendimento direto com o responsável técnico em SJC e região.</p>
 
       <div class="hero-meta">
-        <span>Segurança Eletrônica & CFTV</span>
-        <span>Fechaduras Digitais</span>
         <span>Instalações Elétricas</span>
+        <span>Segurança Eletrônica</span>
+        <span>Automação Residencial e Comercial</span>
+        <span>Infraestrutura e Suporte TI</span>
       </div>
 
       <div style="display: flex; gap: 10px; flex-wrap: wrap;">
@@ -320,58 +343,52 @@
 
       <div class="services-grid">
 
-        <!-- Segurança Eletrônica -->
+        <!-- 1. Instalações Elétricas -->
         <div class="service-card">
-          <div class="service-icon">
-            <svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24"><path d="M23 7l-7 5 7 5V7z"></path><rect x="1" y="5" width="15" height="14" rx="2" ry="2"></rect></svg>
+          <img src="https://images.unsplash.com/photo-1621905251189-08b45d6a269e?w=600&h=400&fit=crop&auto=format" alt="Quadro de distribuição elétrica organizado e profissional" class="service-image" loading="lazy">
+          <div class="service-content">
+            <div class="service-icon">
+              <svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"></polygon></svg>
+            </div>
+            <h3>Instalações Elétricas</h3>
+            <p>Manutenção preventiva/corretiva, disjuntores, tomadas e correção de fuga de corrente.</p>
           </div>
-          <h3>Segurança Eletrônica & CFTV</h3>
-          <p>Câmeras de monitoramento HD, alarmes e acesso remoto integrado no seu celular.</p>
         </div>
 
-        <!-- Fechaduras Digitais -->
+        <!-- 2. Segurança Eletrônica -->
         <div class="service-card">
-          <div class="service-icon">
-            <svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24"><rect x="5" y="2" width="14" height="20" rx="2" ry="2"></rect><circle cx="12" cy="10" r="3"></circle><path d="M9 17h6"></path></svg>
+          <img src="https://images.unsplash.com/photo-1557804506-669a67965ba0?w=600&h=400&fit=crop&auto=format" alt="Sistema de CFTV e câmeras de segurança instaladas" class="service-image" loading="lazy">
+          <div class="service-content">
+            <div class="service-icon">
+              <svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24"><path d="M23 7l-7 5 7 5V7z"></path><rect x="1" y="5" width="15" height="14" rx="2" ry="2"></rect></svg>
+            </div>
+            <h3>Segurança Eletrônica</h3>
+            <p>Câmeras de monitoramento HD, alarmes e acesso remoto integrado no seu celular.</p>
           </div>
-          <h3>Fechaduras Digitais</h3>
-          <p>Biometria, senhas e controle de acesso com instalação e adequação profissional.</p>
         </div>
 
-        <!-- Instalações Elétricas -->
+        <!-- 3. Automação Residencial e Comercial -->
         <div class="service-card">
-          <div class="service-icon">
-            <svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"></polygon></svg>
+          <img src="https://images.unsplash.com/photo-1558002038-1055907df827?w=600&h=400&fit=crop&auto=format" alt="Casa inteligente com automação de iluminação e cortinas" class="service-image" loading="lazy">
+          <div class="service-content">
+            <div class="service-icon">
+              <svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"></path></svg>
+            </div>
+            <h3>Automação Residencial e Comercial</h3>
+            <p>Interruptores inteligentes, cenários de iluminação e integração com Alexa ou Google Home.</p>
           </div>
-          <h3>Instalações Elétricas</h3>
-          <p>Manutenção preventiva/corretiva, disjuntores, tomadas e correção de fuga de corrente.</p>
         </div>
 
-        <!-- Automação -->
+        <!-- 4. Infraestrutura e Suporte TI -->
         <div class="service-card">
-          <div class="service-icon">
-            <svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"></path></svg>
+          <img src="https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?w=600&h=400&fit=crop&auto=format" alt="Cabeamento estruturado e rack de rede organizado" class="service-image" loading="lazy">
+          <div class="service-content">
+            <div class="service-icon">
+              <svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24"><rect x="2" y="3" width="20" height="14" rx="2" ry="2"></rect><line x1="8" y1="21" x2="16" y2="21"></line><line x1="12" y1="17" x2="12" y2="21"></line></svg>
+            </div>
+            <h3>Infraestrutura e Suporte TI</h3>
+            <p>Cabeamento estruturado, redes corporativas, Wi-Fi Mesh e suporte técnico especializado.</p>
           </div>
-          <h3>Automação Residencial</h3>
-          <p>Interruptores inteligentes e integração com Alexa ou Google Home.</p>
-        </div>
-
-        <!-- Redes -->
-        <div class="service-card">
-          <div class="service-icon">
-            <svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"></circle><line x1="2" y1="12" x2="22" y2="12"></line><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path></svg>
-          </div>
-          <h3>Redes & Wi-Fi Mesh</h3>
-          <p>Cobertura Wi-Fi estável (TP-Link Deco) e instalação de antenas Starlink.</p>
-        </div>
-
-        <!-- Infraestrutura -->
-        <div class="service-card">
-          <div class="service-icon">
-            <svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24"><rect x="2" y="3" width="20" height="14" rx="2" ry="2"></rect><line x1="8" y1="21" x2="16" y2="21"></line><line x1="12" y1="17" x2="12" y2="21"></line></svg>
-          </div>
-          <h3>Infraestrutura & Suporte</h3>
-          <p>Cabeamento estruturado, pontos elétricos e suporte técnico especializado.</p>
         </div>
 
       </div>
