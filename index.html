@@ -248,6 +248,34 @@
     flex: 1;
   }
 
+  .service-list {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 0.3rem;
+    flex: 1;
+    margin-top: 0.25rem;
+  }
+
+  .service-list li {
+    font-size: 0.8rem;
+    color: var(--text-muted);
+    padding-left: 1rem;
+    position: relative;
+    line-height: 1.4;
+  }
+
+  .service-list li::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 0.45em;
+    width: 5px;
+    height: 5px;
+    border-radius: 50%;
+    background: var(--accent);
+  }
+
   /* Compact Banner */
   .compact-banner {
     background: var(--primary);
@@ -352,17 +380,17 @@
               <svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"></polygon></svg>
             </div>
             <h3>Instalações Elétricas</h3>
-            <p>
-              Instalações e reparos elétricos.
-              <br>Manutenção preventiva e corretiva.
-              <br>Quadros elétricos e disjuntores.
-              <br>Tomadas, interruptores e circuitos.
-              <br>Iluminação interna e externa.
-              <br>Instalação de chuveiros, ventiladores e equipamentos.
-              <br>Identificação e correção de falhas elétricas.
-              <br>Aterramento e dispositivos de proteção.
-              <br>Atendimento emergencial 24 horas.
-            </p>
+            <ul class="service-list">
+              <li>Instalações e reparos elétricos.</li>
+              <li>Manutenção preventiva e corretiva.</li>
+              <li>Quadros elétricos e disjuntores.</li>
+              <li>Tomadas, interruptores e circuitos.</li>
+              <li>Iluminação interna e externa.</li>
+              <li>Instalação de chuveiros, ventiladores e equipamentos.</li>
+              <li>Identificação e correção de falhas elétricas.</li>
+              <li>Aterramento e dispositivos de proteção.</li>
+              <li>Atendimento emergencial 24 horas.</li>
+            </ul>
           </div>
         </div>
 
