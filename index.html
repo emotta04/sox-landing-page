@@ -276,6 +276,23 @@
     background: var(--accent);
   }
 
+  .service-list.scrollable {
+    max-height: 190px;
+    overflow-y: auto;
+    padding-right: 6px;
+    scrollbar-width: thin;
+    scrollbar-color: var(--border) transparent;
+  }
+
+  .service-list.scrollable::-webkit-scrollbar {
+    width: 4px;
+  }
+
+  .service-list.scrollable::-webkit-scrollbar-thumb {
+    background: var(--border);
+    border-radius: 4px;
+  }
+
   /* Compact Banner */
   .compact-banner {
     background: var(--primary);
@@ -380,7 +397,7 @@
               <svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"></polygon></svg>
             </div>
             <h3>Instalações Elétricas</h3>
-            <ul class="service-list">
+            <ul class="service-list scrollable">
               <li>Instalações e reparos elétricos.</li>
               <li>Manutenção preventiva e corretiva.</li>
               <li>Quadros elétricos e disjuntores.</li>
@@ -426,7 +443,20 @@
               <svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"></path></svg>
             </div>
             <h3>Automação Residencial e Comercial</h3>
-            <p>Interruptores inteligentes, cenários de iluminação e integração com Alexa ou Google Home.</p>
+            <ul class="service-list scrollable">
+              <li>Instalação e configuração de dispositivos inteligentes.</li>
+              <li>Automação de iluminação.</li>
+              <li>Controle inteligente de tomadas e interruptores.</li>
+              <li>Automação de portões e fechaduras digitais.</li>
+              <li>Controle de ventiladores e ar-condicionado.</li>
+              <li>Automação de bombas e piscinas.</li>
+              <li>Integração com Alexa, Google Home e Apple Casa.</li>
+              <li>Controle remoto de equipamentos pelo celular.</li>
+              <li>Configuração de rotinas e cenários automatizados.</li>
+              <li>Sensores de presença e abertura.</li>
+              <li>Automação de cortinas e persianas.</li>
+              <li>Manutenção e ampliação de sistemas de automação.</li>
+            </ul>
           </div>
         </div>
 
